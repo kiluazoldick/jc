@@ -1,0 +1,10 @@
+L1: texte: "oui"; code: {1}
+L2: texte: "bonjour"; code: {2}
+L3: texte: "facile"; code: {3}
+L4: texte: "cool"; code: {4}
+L5: texte: "bien"; code: {5}
+L6: texte: "zoo"; code: {3}
+L7: texte: "ex"; code: {5}
+L8: texte: "you"; code: {4}
+L9: texte: "dur"; code: {7}
+L10: texte: "zen"; code: {1} enigme: *Combien peut-on mettre de gouttes d'eau dans un verre vide ?*
