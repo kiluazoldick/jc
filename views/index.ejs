@@ -53,17 +53,17 @@
   </div>
     <section class="blocSol">
         <h2>Niveau : <span id="level"><%- lev.match(/L(.*?):/)[1]  %></span></h2>
-        Code : 
+        Décalage : 
         <input type="hidden" id="code" value="<%- lev.match(/\{(.*?)\}/)[1]  %>"/>
         <span  style="background: rgb(65, 64, 64);" > <% if(lev.match(/\*(.*?)\*/) != null){%><%-lev.match(/\*(.*?)\*/)[1]%><% }else{%><%-lev.match(/\{(.*?)\}/)[1]%><%}  %> </span>
         
             <form  class ="formu" role="form">            
-                   <label for="password">Texte codé : </label>
+                   <label for="password">Texte chiffré : </label>
                     <input type="hidden" id="texteACode" value="<%- lev.match(/"(.*?)"/)[1]  %>"/>
                     <input type="text" id="texteCode" value="" style="background: rgb(65, 64, 64); text-align: center;" disabled/>
                     <br />
                     <br />
-                    <label for="password">Proposez : </label>
+                    <label for="password">Décryptage : </label>
                     <input type="text" value="" id="prop"/>
                     <br />
                     <br />
