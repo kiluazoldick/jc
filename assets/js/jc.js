@@ -31,7 +31,7 @@ function coder(texte) {
    textCode.textContent = temp;
 }
 function verif(texte) {
-   var rep = textProp.value.toUpperCase();
+   var rep = textProp.value.trim().toUpperCase();
    if (rep == texte) {
       Swal.fire({
          title: 'Trouvé!',
