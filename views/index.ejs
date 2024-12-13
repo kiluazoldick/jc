@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
    -->
-    <title>jc app</title>
+  <title>jc app</title>
 </head>
+
 <body>
 
 
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="display: none;">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    style="display: none;">
     Comment jouer ?
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="display: none;">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -32,16 +36,21 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Ce jeu est basé sur le chiffrement de César <br>
-            Le <b>chiffrement de César</b> est un des plus anciens et simples algorithmes de chiffrement par substitution. Utilisé par Jules César pour protéger ses communications militaires, il consiste à remplacer chaque lettre du texte par une autre située un certain nombre de positions plus loin dans l’alphabet.
-<br>
-            <b>Fonctionnement</b> : On choisit un décalage, par exemple 3, et chaque lettre est remplacée par la lettre située 3 positions plus loin. Ainsi, `A` devient `D`, `B` devient `E`, et ainsi de suite. Si on dépasse la fin de l’alphabet, on revient au début.
-            <br>
-            <b>Exemple</b> : <br>
-            - Texte à chiffrer : `BONJOUR` <br>
-            - Décalage de 3 : `ERQMRXU` <br>
+          Ce jeu est basé sur le chiffrement de César <br>
+          Le <b>chiffrement de César</b> est un des plus anciens et simples algorithmes de chiffrement par substitution.
+          Utilisé par Jules César pour protéger ses communications militaires, il consiste à remplacer chaque lettre du
+          texte par une autre située un certain nombre de positions plus loin dans l’alphabet.
+          <br>
+          <b>Fonctionnement</b> : On choisit un décalage, par exemple 3, et chaque lettre est remplacée par la lettre
+          située 3 positions plus loin. Ainsi, `A` devient `D`, `B` devient `E`, et ainsi de suite. Si on dépasse la fin
+          de l’alphabet, on revient au début.
+          <br>
+          <b>Exemple</b> : <br>
+          - Texte à chiffrer : `BONJOUR` <br>
+          - Décalage de 3 : `ERQMRXU` <br>
 
-            <b>Décryptage</b> : Pour retrouver le texte original, on effectue l’opération inverse en décalant chaque lettre dans le sens opposé.
+          <b>Décryptage</b> : Pour retrouver le texte original, on effectue l’opération inverse en décalant chaque
+          lettre dans le sens opposé.
 
         </div>
         <div class="modal-footer">
@@ -50,39 +59,39 @@
       </div>
     </div>
   </div>
-    <div class="container">
-      <h1>Jule César - Jeu de Cryptage</h1>
-      <h2>Niveau : <span id="level"><%- lev.match(/L(.*?):/)[1]  %></span></h2>
+  <div class="container">
+    <h1>Jule César - Jeu de Cryptage</h1>
+    <h2>Niveau : <span id="level"><%- lev.match(/L(.*?):/)[1] %></span></h2>
+    <div class="form-group">
+      <label for="shift">Indice d'encodage :</label>
+      <input type="hidden" id="code" value="<%- lev.match(/\{(.*?)\}/)[1]  %>" />
+      <input type="text" 
+        value="<% if(lev.match(/\*(.*?)\*/) != null){%><%-lev.match(/\*(.*?)\*/)[1]%><% }else{%><%-lev.match(/\{(.*?)\}/)[1]%><%}  %>"
+        readonly />
+    </div>
+
+    <form class="" role="form">
+
+      <div class="encoded-message">
+        Message codé: <span id="texteCode"> </span>
+      </div>
       <div class="form-group">
-        <label for="shift">Indice d'encodage :</label>
-        <input type="hidden" id="code" value="<%- lev.match(/\{(.*?)\}/)[1]  %>"/>
-        <input type="text" id="shift" value="<% if(lev.match(/\*(.*?)\*/) != null){%><%-lev.match(/\*(.*?)\*/)[1]%><% }else{%><%-lev.match(/\{(.*?)\}/)[1]%><%}  %>" readonly />
+        <label for="decodedMessage">Entrez le message décodé :</label>
+        <input type="text" id="prop" />
+      </div>
+      <input type="hidden" id="texteACode" value="<%- lev.match(/"(.*?)"/)[1]  %>"/>
+      
+      <button type="reset" role="button" class="buttonreset">Effacer Tout</button>
+      <button type="submit" role="button" class="buttoncon">Soumettre</button>
+      <button id="solutionButton">Solution</button>
+      <div class="solution" id="solutionBox">
+        <p id="solutionText">Réponse correcte : VOICI LE MESSAGE</p>
       </div>
 
-            <form  class ="" role="form">
-
-                   <div class="encoded-message">
-                  Message codé: <span id="texteCode"> </span>
-                    <!-- <input type="text" id="texteCode" value="" style="background: rgb(65, 64, 64); text-align: center;" readonly/> -->
-                </div>
-                <div class="form-group">
-                  <label for="decodedMessage">Entrez le message décodé :</label>
-                  <input type="text" id="prop" />
-                </div>
-                    <input type="hidden" id="texteACode" value="<%- lev.match(/"(.*?)"/)[1]  %>"/>
-                    
-                   
-
-                    <button type="reset" role="button" class="buttonreset">Effacer Tout</button>
-                    <a href="Choixclasse.html"><button type="submit" role="button" class="buttoncon">Soumettre</button>
-                      <button id="solutionButton">Solution</button>
-                <div class="solution" id="solutionBox">
-                  <p id="solutionText">Réponse correcte : VOICI LE MESSAGE</p>
-                </div>
-
-            </form>
+    </form>
     </section>
 
     <script src="../assets/js/jc.js"></script>
 </body>
+
 </html>

@@ -4,7 +4,7 @@ var c = parseInt(code.value);
 var textCode = document.getElementById("texteCode");
 var textACode = document.getElementById("texteACode");
 var textProp = document.getElementById("prop");
-var level =document.getElementById("level");
+var level = document.getElementById("level");
 var lev = parseInt(level.innerHTML);
 console.log(lev);
 var texte = textACode.value.toUpperCase();
@@ -13,67 +13,57 @@ console.log(niv);
 $(document).ready(() => {
    coder(texte);
 })
-$("form").submit(function(e)
-{
+$("form").submit(function (e) {
    e.preventDefault();
    verif(texte);
 })
 
-function coder(texte)
-{
-   var temp="";
-   for(i=0 ; i<texte.length ; i++)
-   {
-     if(texte.charAt(i).charCodeAt(0)+c >"Z".charCodeAt(0))
-     {
-        temp += String.fromCharCode(texte.charAt(i).charCodeAt(0)+c+64 - "Z".charCodeAt(0));   
-     }
-     else
-     {
-       temp += String.fromCharCode(texte.charAt(i).charCodeAt(0)+c);
-     }
+function coder(texte) {
+   let temp = '';
+   for (let i = 0; i < texte.length; i++) {
+      let charCode = texte.charCodeAt(i);
+      if (charCode >= 65 && charCode <= 90) { // Majuscules A-Z
+         temp += String.fromCharCode(((charCode - 65 + c) % 26) + 65);
+      } else {
+         temp += texte.charAt(i); // Non modifié pour les autres caractères
+      }
    }
-
-   // textCode.value = temp;
-   //  code.innerText = "Combien peut on mettre de gouttes d'eau dans un verre vide?";
-    textCode.textContent = temp;
+   textCode.textContent = temp;
 }
-function verif(texte)
-{
-    //    console.log(temp);
-//    console.log("code = " +c);
-   var rep=textProp.value.toUpperCase();
-   if(rep==texte)
-   {
+function verif(texte) {
+   var rep = textProp.value.toUpperCase();
+   if (rep == texte) {
       Swal.fire({
          title: 'Trouvé!',
          text: "Bravo, c'est correct !!!",
          icon: 'success',
          confirmButtonText: 'Cool'
-     });
-     lev++;
-     console.log(lev);
-     setTimeout(function(){window.location.href = '/'+lev}, 1000);
+      });
+      lev++;
+      console.log(lev);
+      setTimeout(function () { window.location.href = '/' + lev }, 1000);
 
-     return true;
-      // alert("Bravo, c'est correct !!!");
-   //    console.log("Bravo, c'est correct");
-        // texte = "abc";
-        // lev++;
-        // var leve = ''+lev;
-        // level.innerText = leve;
+      return true;
    }
-   else
-   {
+   else {
       Swal.fire({
          title: 'Raté!',
          text: "Dommage, c'est incorrect !!!",
          icon: 'error',
          confirmButtonText: 'ok'
-     });
-     return false;
-      // alert("C'est incorrect !!!");
-   //    console.log("C'est incorrect");
+      });
+      return false;
+
    }
 
 }
+function revealSolution(e) {
+   e.preventDefault();
+   document.getElementById(
+      "solutionText"
+   ).textContent = `Réponse correcte : ${texte}`;
+   document.getElementById("solutionBox").style.display = "block";
+}
+document
+  .getElementById("solutionButton")
+  .addEventListener("click", revealSolution);
