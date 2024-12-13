@@ -22,34 +22,10 @@ let i = 0;
     level[i] = line;
     console.log("ligne: "+level[i])
     i++;
-    // console.log(`Ligne: ${line}`);
-    // if(verif(level)) continue;
-    // else break;
   }
 }
 
 lireFichierLigneParLigne('levels.txt');
-
-// function coder(level)
-// {
-//     var texte = level.match(/"(.*?)"/)[1]; 
-//     var c = level.match(/{(.*?)}/)[1]; 
-//    var temp="";
-//    for(i=0 ; i<texte.length ; i++)
-//    {
-//      if(texte.charAt(i).charCodeAt(0)+c >"Z".charCodeAt(0))
-//      {
-//         temp += String.fromCharCode(texte.charAt(i).charCodeAt(0)+c+64 - "Z".charCodeAt(0));   
-//      }
-//      else
-//      {
-//        temp += String.fromCharCode(texte.charAt(i).charCodeAt(0)+c);
-//      }
-//    }
-//    return temp;
-//     // code.innerText = "Combien peut on mettre de gouttes d'eau dans un verre vide?";
-//     // textCode.value = temp;
-// }
 
 app.get('/', (req,res) => {
     const lev = level[0];

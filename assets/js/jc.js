@@ -36,7 +36,7 @@ function coder(texte)
 
    // textCode.value = temp;
    //  code.innerText = "Combien peut on mettre de gouttes d'eau dans un verre vide?";
-    textCode.value = temp;
+    textCode.textContent = temp;
 }
 function verif(texte)
 {
