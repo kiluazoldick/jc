@@ -50,6 +50,7 @@
     border: none;
     border-radius: 5px;
     font-size: 16px;
+    
   }
 
   button {
@@ -79,4 +80,21 @@
 
   .solution p {
     margin: 0;
+  }
+
+  @keyframes animInfosIn {
+    0% {
+      transform: translateY(-1000px);  
+    }
+    100% {
+      transform: translateY(0px);  
+    }
+  }
+  @keyframes animInfosOut {
+    0% {
+      transform: translateY(0px);  
+    }
+    100% {
+      transform: translateY(-1000px);  
+    }
   }
