@@ -2,7 +2,7 @@
 
 JC est un projet ludique et éducatif permettant de découvrir et d'expérimenter avec l'algorithme de chiffrement de Jules César. Ce jeu propose aux utilisateurs des mots chiffrer et il est de leur devoir de déchiffrer les messages, tout en renforçant leur compréhension des concepts fondamentaux de la cryptographie classique.
 
-## Fonctionnalités
+## Fonctionnalités 
 
 - **Chiffrement de messages** : Encodez des messages en utilisant un décalage spécifié.
 - **Déchiffrement de messages** : Découvrez le contenu original d'un message chiffré.
